@@ -1,0 +1,203 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.btn-search {
+    background-color: #1e3a8a;
+    color: white;
+}
+
+.btn-search:hover {
+    background-color: #172554;
+}
+
+.btn-reset {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.btn-reset:hover {
+    background-color: #e2e8f0;
+}
+
+.btn-action-edit {
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+.btn-action-edit:hover {
+    background-color: #2563eb;
+    color: white;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.input-group input {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #334155;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-section {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.search-form {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.search-fields {
+    display: flex;
+    gap: 1.5rem;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.search-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-header h2 {
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin: 0;
+    font-weight: 600;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.modal-footer-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+@keyframes modalFadeIn {
+    from {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
