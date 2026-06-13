@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Teacher from './pages/Teacher';
 import ExamPeriod from './pages/ExamPeriod';
 import Country from './pages/Country';
+import Company from './pages/Company';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/teacher" element={<Teacher />} />
           <Route path="/exam-period" element={<ExamPeriod />} />
           <Route path="/country" element={<Country />} />
+          <Route path="/company" element={<Company />} />
         </Routes>
       </div>
     </Router>
