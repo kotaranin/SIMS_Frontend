@@ -1,0 +1,206 @@
+.country-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.country-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.country-header h1 {
+    font-size: 2rem;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.country-header p {
+    color: #64748b;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.geo-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.geo-column h3 {
+    font-size: 1.15rem;
+    color: #334155;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.table-wrapper {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.geo-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.geo-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.geo-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #edf2f7;
+    color: #334155;
+}
+
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.clickable-row:hover {
+    background-color: #f1f5f9;
+}
+
+.active-row td {
+    background-color: #eff6ff !important;
+    color: #1d4ed8 !important;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.no-data {
+    text-align: center;
+    color: #94a3b8;
+    padding: 3rem !important;
+    font-style: italic;
+}
+
+.loading-placeholder {
+    padding: 3rem;
+    text-align: center;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.actions-cell {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.modal-cities-section {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.section-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.add-city-inline {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.inline-city-input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.inline-city-input:focus {
+    border-color: #3b82f6;
+}
+
+.btn-inline-add {
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    border-radius: 6px;
+    width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-inline-add:hover {
+    background-color: #e2e8f0;
+}
+
+.form-cities-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #f8fafc;
+}
+
+.form-city-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.flat-city-input {
+    background: transparent;
+    border: none;
+    font-size: 0.9rem;
+    color: #334155;
+    font-weight: 500;
+    width: 100%;
+    outline: none;
+    padding: 4px 6px;
+}
+
+.flat-city-input:focus {
+    background: #f0fdf4;
+    border-radius: 4px;
+}
+
+.empty-inline-msg {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-align: center;
+    margin: 1rem 0;
+    font-style: italic;
+}

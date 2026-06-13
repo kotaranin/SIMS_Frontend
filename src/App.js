@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Teacher from './pages/Teacher';
 import ExamPeriod from './pages/ExamPeriod';
+import Country from './pages/Country';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/teacher" element={<Teacher />} />
           <Route path="/exam-period" element={<ExamPeriod />} />
+          <Route path="/country" element={<Country />} />
         </Routes>
       </div>
     </Router>
