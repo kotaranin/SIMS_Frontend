@@ -6,6 +6,7 @@ import ExamPeriod from './pages/ExamPeriod';
 import Country from './pages/Country';
 import Company from './pages/Company';
 import RegistrationRequest from './pages/RegistrationRequest';
+import StudyLevel from './pages/StudyLevel';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/country" element={<Country />} />
           <Route path="/company" element={<Company />} />
           <Route path="/registration-request" element={<RegistrationRequest />} />
+          <Route path="/study-level" element={<StudyLevel />} />
         </Routes>
       </div>
     </Router>
