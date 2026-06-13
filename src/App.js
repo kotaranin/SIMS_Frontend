@@ -8,6 +8,7 @@ import Company from './pages/Company';
 import RegistrationRequest from './pages/RegistrationRequest';
 import StudyLevel from './pages/StudyLevel';
 import Student from './pages/Student';
+import Internship from './pages/Internship';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/registration-request" element={<RegistrationRequest />} />
           <Route path="/study-level" element={<StudyLevel />} />
           <Route path="/student" element={<Student />} />
+          <Route path="/internship" element={<Internship />} />
         </Routes>
       </div>
     </Router>
