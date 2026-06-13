@@ -7,6 +7,7 @@ import Country from './pages/Country';
 import Company from './pages/Company';
 import RegistrationRequest from './pages/RegistrationRequest';
 import StudyLevel from './pages/StudyLevel';
+import Student from './pages/Student';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/company" element={<Company />} />
           <Route path="/registration-request" element={<RegistrationRequest />} />
           <Route path="/study-level" element={<StudyLevel />} />
+          <Route path="/student" element={<Student />} />
         </Routes>
       </div>
     </Router>

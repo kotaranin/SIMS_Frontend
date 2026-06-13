@@ -1,0 +1,229 @@
+.student-container {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.student-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.student-header h1 {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 4px;
+}
+
+.student-header p {
+    font-size: 14px;
+    color: #718096;
+}
+
+.btn-add-student {
+    display: flex;
+    align-items: center;
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-add-student:hover {
+    background-color: #2563eb;
+}
+
+.search-grid-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.student-table th {
+    background-color: #f7fafc;
+    color: #4a5568;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid #edf2f7;
+    font-size: 14px;
+}
+
+.student-table td {
+    padding: 16px;
+    border-bottom: 1px solid #edf2f7;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+.index-cell {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.name-cell {
+    font-weight: 600;
+}
+
+.year-badge {
+    background-color: #edf2f7;
+    color: #2d3748;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.city-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.country-sub {
+    font-size: 12px;
+    color: #a0aec0;
+}
+
+.program-display-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.main-program-txt {
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.sub-module-txt {
+    font-size: 12px;
+    color: #38a169;
+    font-weight: 500;
+}
+
+.no-module-txt {
+    font-size: 12px;
+    color: #a0aec0;
+    font-style: italic;
+}
+
+.form-group-select {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.select-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.custom-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #2d3748;
+    outline: none;
+    transition: all 0.2s;
+    height: 42px;
+}
+
+.custom-select:focus {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 1px #3182ce;
+}
+
+.custom-select:disabled {
+    background-color: #f7fafc;
+    color: #a0aec0;
+    cursor: not-allowed;
+    border-color: #e2e8f0;
+}
+
+.select-hint-text {
+    font-size: 11px;
+    color: #718096;
+    margin-top: -2px;
+    font-style: italic;
+}
+
+.select-hint-text.green-hint {
+    color: #38a169;
+}
+
+.student-form-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-row-two-col {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row-two-col>* {
+    flex: 1;
+}
+
+.form-actions-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    border-top: 1px solid #edf2f7;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+.btn-form-cancel {
+    background-color: #edf2f7;
+    color: #4a5568;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-form-cancel:hover {
+    background-color: #e2e8f0;
+}
+
+.btn-form-save {
+    display: flex;
+    align-items: center;
+    background-color: #48bb78;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-form-save:hover {
+    background-color: #38a169;
+}

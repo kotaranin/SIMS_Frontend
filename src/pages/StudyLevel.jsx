@@ -181,7 +181,7 @@ const StudyLevel = () => {
         <div className="study-level-container">
             <div className="study-level-header">
                 <div>
-                    <h1>Nivoi Studija</h1>
+                    <h1>Nivoi studija</h1>
                     <p>Pregled, unos i izmena nivoa studija, pripadajućih studijskih programa i njihovih modula.</p>
                 </div>
                 <Button variant="save" onClick={openAddModal} icon={<Plus size={18} />}>
