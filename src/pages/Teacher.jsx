@@ -107,7 +107,7 @@ const Teacher = () => {
         <div className="teacher-container">
             <div className="teacher-header">
                 <div>
-                    <h1>Evidencija Nastavnika</h1>
+                    <h1>Nastavnici</h1>
                     <p>Pregled, pretraga i upravljanje podacima o nastavnom osoblju.</p>
                 </div>
                 <Button variant="primary" icon={<UserPlus size={18} />} onClick={openAddModal}>
