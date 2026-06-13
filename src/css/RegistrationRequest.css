@@ -1,0 +1,164 @@
+.request-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.request-header {
+    margin-bottom: 2rem;
+}
+
+.request-header h1 {
+    font-size: 2rem;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.request-header p {
+    color: #64748b;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.table-wrapper {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.request-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.request-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.request-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #edf2f7;
+    color: #334155;
+}
+
+.font-semibold {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.request-table tr:hover td {
+    background-color: #f8fafc;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.no-data {
+    text-align: center;
+    color: #94a3b8;
+    padding: 3rem !important;
+    font-style: italic;
+}
+
+.loading-placeholder {
+    padding: 3rem;
+    text-align: center;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.actions-cell {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.badge-admin {
+    background-color: #fee2e2;
+    color: #ef4444;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge-user {
+    background-color: #f1f5f9;
+    color: #475569;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.confirm-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #334155;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.confirm-modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.btn-confirm-admin {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-confirm-admin:hover {
+    background-color: #dc2626;
+}
+
+.btn-confirm-officer {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-confirm-officer:hover {
+    background-color: #2563eb;
+}
+
+.btn-confirm-cancel {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-confirm-cancel:hover {
+    background-color: #e2e8f0;
+}

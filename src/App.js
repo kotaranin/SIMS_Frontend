@@ -5,6 +5,7 @@ import Teacher from './pages/Teacher';
 import ExamPeriod from './pages/ExamPeriod';
 import Country from './pages/Country';
 import Company from './pages/Company';
+import RegistrationRequest from './pages/RegistrationRequest';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/exam-period" element={<ExamPeriod />} />
           <Route path="/country" element={<Country />} />
           <Route path="/company" element={<Company />} />
+          <Route path="/registration-request" element={<RegistrationRequest />} />
         </Routes>
       </div>
     </Router>
