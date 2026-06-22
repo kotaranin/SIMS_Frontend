@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { GraduationCap, Lock, Mail, AlertCircle, Loader2 } from 'lucide-react';
 import http from '../api/http';
 import '../css/Login.css';
@@ -94,6 +94,10 @@ const Login = () => {
                             'Prijavi se'
                         )}
                     </button>
+
+                    <div className="login-footer-links">
+                        <p>Nemate nalog? <Link to="/register" className="register-link">Registrujte se ovde</Link></p>
+                    </div>
                 </form>
             </div>
         </div>

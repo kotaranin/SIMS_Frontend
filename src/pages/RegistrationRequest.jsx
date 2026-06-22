@@ -78,10 +78,10 @@ const RegistrationRequest = () => {
                 firstName: request.firstName,
                 lastName: request.lastName,
                 email: request.email,
-                passwordSalt: request.passwordSalt,
+                passwordSalt: request.password,
                 hashedPassword: request.hashedPassword,
                 question: request.question,
-                answerSalt: request.answerSalt,
+                answerSalt: request.answer,
                 hashedAnswer: request.hashedAnswer,
                 admin: finalAdminValue,
                 studyLevel: {
