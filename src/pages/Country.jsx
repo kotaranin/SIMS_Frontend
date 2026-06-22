@@ -24,9 +24,9 @@ const Country = () => {
     const fetchCountries = async () => {
         setLoading(true);
         try {
-            let url = '/country';
+            let url = 'country';
             if (searchName) {
-                url = `/country/search?name=${encodeURIComponent(searchName)}`;
+                url = `country/search?name=${encodeURIComponent(searchName)}`;
             }
             const response = await http.get(url);
             setCountries(response.data);
@@ -51,7 +51,7 @@ const Country = () => {
         setSelectedCountry(null);
         setLoading(true);
         try {
-            const response = await http.get('/country');
+            const response = await http.get('country');
             setCountries(response.data);
         } catch (error) {
             console.error(error);
@@ -110,9 +110,9 @@ const Country = () => {
 
         try {
             if (isEditMode) {
-                await http.put(`/country/${currentCountryId}`, countryData);
+                await http.put(`country/${currentCountryId}`, countryData);
             } else {
-                await http.post('/country', countryData);
+                await http.post('country', countryData);
             }
             setIsModalOpen(false);
             fetchCountries();

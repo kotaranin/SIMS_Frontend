@@ -20,9 +20,9 @@ const RegistrationRequest = () => {
     const fetchRequests = async () => {
         setLoading(true);
         try {
-            let url = '/registration-request';
+            let url = 'registration-request';
             if (searchFirstName || searchLastName) {
-                url = `/registration-request/search?firstName=${encodeURIComponent(searchFirstName)}&lastName=${encodeURIComponent(searchLastName)}`;
+                url = `registration-request/search?firstName=${encodeURIComponent(searchFirstName)}&lastName=${encodeURIComponent(searchLastName)}`;
             }
             const response = await http.get(url);
             setRequests(response.data);
@@ -42,7 +42,7 @@ const RegistrationRequest = () => {
         setSearchLastName('');
         setLoading(true);
         try {
-            const response = await http.get('/registration-request');
+            const response = await http.get('registration-request');
             setRequests(response.data);
         } catch (error) {
             console.error(error);
@@ -91,9 +91,9 @@ const RegistrationRequest = () => {
                 }
             };
 
-            await http.post('/student-officer', studentOfficerPayload);
+            await http.post('student-officer', studentOfficerPayload);
 
-            await http.delete(`/registration-request/${request.idRegistrationRequest}`);
+            await http.delete(`registration-request/${request.idRegistrationRequest}`);
 
             fetchRequests();
         } catch (error) {
@@ -105,7 +105,7 @@ const RegistrationRequest = () => {
     const handleReject = async (id) => {
         if (!window.confirm("Da li ste sigurni da želite da odbijete i obrišete ovaj zahtev?")) return;
         try {
-            await http.delete(`/registration-request/${id}`);
+            await http.delete(`registration-request/${id}`);
             fetchRequests();
         } catch (error) {
             console.error(error);

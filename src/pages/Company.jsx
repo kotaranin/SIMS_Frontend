@@ -24,9 +24,9 @@ const Company = () => {
     const fetchCompanies = async () => {
         setLoading(true);
         try {
-            let url = '/company';
+            let url = 'company';
             if (searchName || searchAddress) {
-                url = `/company/search?name=${searchName}&address=${searchAddress}`;
+                url = `company/search?name=${searchName}&address=${searchAddress}`;
             }
             const response = await http.get(url);
             setCompanies(response.data);
@@ -39,7 +39,7 @@ const Company = () => {
 
     const fetchCities = async () => {
         try {
-            const response = await http.get('/city');
+            const response = await http.get('city');
             setCities(response.data);
         } catch (error) {
             console.error(error);
@@ -56,7 +56,7 @@ const Company = () => {
         setSearchAddress('');
         setLoading(true);
         try {
-            const response = await http.get('/company');
+            const response = await http.get('company');
             setCompanies(response.data);
         } catch (error) {
             console.error(error);
@@ -76,7 +76,7 @@ const Company = () => {
 
     const openEditModal = async (id) => {
         try {
-            const response = await http.get(`/company/${id}`);
+            const response = await http.get(`company/${id}`);
             setIsEditMode(true);
             setCurrentCompanyId(id);
             setFormName(response.data.name);
@@ -107,9 +107,9 @@ const Company = () => {
 
         try {
             if (isEditMode) {
-                await http.put(`/company/${currentCompanyId}`, companyData);
+                await http.put(`company/${currentCompanyId}`, companyData);
             } else {
-                await http.post('/company', companyData);
+                await http.post('company', companyData);
             }
             setIsModalOpen(false);
             fetchCompanies();

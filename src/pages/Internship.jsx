@@ -52,7 +52,7 @@ const Internship = () => {
     const fetchInternships = async () => {
         setLoading(true);
         try {
-            let url = '/internship';
+            let url = 'internship';
             const hasSearchValues = Object.values(searchParams).some(val => val !== '');
 
             if (hasSearchValues) {
@@ -60,7 +60,7 @@ const Internship = () => {
                 Object.entries(searchParams).forEach(([key, val]) => {
                     if (val) queryParts.push(`${key}=${encodeURIComponent(val)}`);
                 });
-                url = `/internship/search?${queryParts.join('&')}`;
+                url = `internship/search?${queryParts.join('&')}`;
             }
 
             const response = await http.get(url);
@@ -75,11 +75,11 @@ const Internship = () => {
     const fetchLookups = async () => {
         try {
             const [teachersRes, examPeriodsRes, officersRes, companiesRes, studentsRes] = await Promise.all([
-                http.get('/teacher'),
-                http.get('/exam-period'),
-                http.get('/student-officer'),
-                http.get('/company'),
-                http.get('/student')
+                http.get('teacher'),
+                http.get('exam-period'),
+                http.get('student-officer'),
+                http.get('company'),
+                http.get('student')
             ]);
             setTeachers(teachersRes.data);
             setExamPeriods(examPeriodsRes.data);
@@ -111,7 +111,7 @@ const Internship = () => {
         setSearchParams(cleared);
         setLoading(true);
         try {
-            const response = await http.get('/internship');
+            const response = await http.get('internship');
             setInternships(response.data);
         } catch (error) {
             console.error(error);
@@ -160,7 +160,7 @@ const Internship = () => {
         setIsEditMode(true);
         setCurrentId(id);
         try {
-            const response = await http.get(`/internship/${id}`);
+            const response = await http.get(`internship/${id}`);
             const data = response.data;
 
             const selectedTeacher = teachers.find(t => t.idTeacher === data.teacher?.idTeacher) || data.teacher;
@@ -198,7 +198,7 @@ const Internship = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Da li ste sigurni da želite da obrišete ovu stručnu praksu?")) {
             try {
-                await http.delete(`/internship/${id}`);
+                await http.delete(`internship/${id}`);
                 fetchInternships();
             } catch (error) {
                 console.error(error);
@@ -257,9 +257,9 @@ const Internship = () => {
 
         try {
             if (isEditMode) {
-                await http.put(`/internship/${currentId}`, payload);
+                await http.put(`internship/${currentId}`, payload);
             } else {
-                await http.post('/internship', payload);
+                await http.post('internship', payload);
             }
             setIsModalOpen(false);
             fetchInternships();

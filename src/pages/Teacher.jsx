@@ -22,9 +22,9 @@ const Teacher = () => {
     const fetchTeachers = async () => {
         setLoading(true);
         try {
-            let url = '/teacher';
+            let url = 'teacher';
             if (searchFirstName || searchLastName) {
-                url = `/teacher/search?firstName=${searchFirstName}&lastName=${searchLastName}`;
+                url = `teacher/search?firstName=${searchFirstName}&lastName=${searchLastName}`;
             }
             const response = await http.get(url);
             setTeachers(response.data);
@@ -44,7 +44,7 @@ const Teacher = () => {
         setSearchLastName('');
         setLoading(true);
         try {
-            const response = await http.get('/teacher');
+            const response = await http.get('teacher');
             setTeachers(response.data);
         } catch (error) {
             console.error(error);
@@ -63,7 +63,7 @@ const Teacher = () => {
 
     const openEditModal = async (id) => {
         try {
-            const response = await http.get(`/teacher/${id}`);
+            const response = await http.get(`teacher/${id}`);
             setIsEditMode(true);
             setCurrentTeacherId(id);
             setFormFirstName(response.data.firstName);
@@ -90,9 +90,9 @@ const Teacher = () => {
 
         try {
             if (isEditMode) {
-                await http.put(`/teacher/${currentTeacherId}`, teacherData);
+                await http.put(`teacher/${currentTeacherId}`, teacherData);
             } else {
-                await http.post('/teacher', teacherData);
+                await http.post('teacher', teacherData);
             }
 
             setIsModalOpen(false);

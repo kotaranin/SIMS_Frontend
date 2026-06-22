@@ -25,10 +25,10 @@ const ExamPeriod = () => {
     const fetchExamPeriods = async () => {
         setLoading(true);
         try {
-            let url = '/exam-period';
+            let url = 'exam-period';
 
             if (searchName || searchStartDate || searchEndDate) {
-                url = `/exam-period/search?name=${encodeURIComponent(searchName)}&startDate=${searchStartDate}&endDate=${searchEndDate}`;
+                url = `exam-period/search?name=${encodeURIComponent(searchName)}&startDate=${searchStartDate}&endDate=${searchEndDate}`;
             }
 
             const response = await http.get(url);
@@ -50,7 +50,7 @@ const ExamPeriod = () => {
         setSearchEndDate('');
         setLoading(true);
         try {
-            const response = await http.get('/exam-period');
+            const response = await http.get('exam-period');
             setExamPeriods(response.data);
         } catch (error) {
             console.error(error);
@@ -70,7 +70,7 @@ const ExamPeriod = () => {
 
     const openEditModal = async (id) => {
         try {
-            const response = await http.get(`/exam-period/${id}`);
+            const response = await http.get(`exam-period/${id}`);
             setIsEditMode(true);
             setCurrentPeriodId(id);
             setFormName(response.data.name);
@@ -103,9 +103,9 @@ const ExamPeriod = () => {
 
         try {
             if (isEditMode) {
-                await http.put(`/exam-period/${currentPeriodId}`, periodData);
+                await http.put(`exam-period/${currentPeriodId}`, periodData);
             } else {
-                await http.post('/exam-period', periodData);
+                await http.post('exam-period', periodData);
             }
             setIsModalOpen(false);
             fetchExamPeriods();

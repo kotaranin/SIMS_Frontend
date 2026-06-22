@@ -25,9 +25,9 @@ const StudyLevel = () => {
     const fetchStudyLevels = async () => {
         setLoading(true);
         try {
-            let url = '/study-level';
+            let url = 'study-level';
             if (searchName) {
-                url = `/study-level/search?name=${encodeURIComponent(searchName)}`;
+                url = `study-level/search?name=${encodeURIComponent(searchName)}`;
             }
             const response = await http.get(url);
             setStudyLevels(response.data);
@@ -46,7 +46,7 @@ const StudyLevel = () => {
         setSearchName('');
         setLoading(true);
         try {
-            const response = await http.get('/study-level');
+            const response = await http.get('study-level');
             setStudyLevels(response.data);
         } catch (error) {
             console.error(error);
@@ -69,7 +69,7 @@ const StudyLevel = () => {
         setIsEditMode(true);
         setCurrentId(id);
         try {
-            const response = await http.get(`/study-level/${id}`);
+            const response = await http.get(`study-level/${id}`);
             setFormData({
                 name: response.data.name || '',
                 studyPrograms: response.data.studyPrograms || []
@@ -165,9 +165,9 @@ const StudyLevel = () => {
 
         try {
             if (isEditMode) {
-                await http.put(`/study-level/${currentId}`, payload);
+                await http.put(`study-level/${currentId}`, payload);
             } else {
-                await http.post('/study-level', payload);
+                await http.post('study-level', payload);
             }
             setIsModalOpen(false);
             fetchStudyLevels();

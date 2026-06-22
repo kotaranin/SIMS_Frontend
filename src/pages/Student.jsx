@@ -44,7 +44,7 @@ const Student = () => {
     const fetchStudents = async () => {
         setLoading(true);
         try {
-            let url = '/student';
+            let url = 'student';
             const hasSearchValues = Object.values(searchParams).some(val => val !== '');
 
             if (hasSearchValues) {
@@ -52,7 +52,7 @@ const Student = () => {
                 Object.entries(searchParams).forEach(([key, val]) => {
                     if (val) queryParts.push(`${key}=${encodeURIComponent(val)}`);
                 });
-                url = `/student/search?${queryParts.join('&')}`;
+                url = `student/search?${queryParts.join('&')}`;
             }
 
             const response = await http.get(url);
@@ -67,8 +67,8 @@ const Student = () => {
     const fetchLookups = async () => {
         try {
             const [citiesRes, programsRes] = await Promise.all([
-                http.get('/city'),
-                http.get('/study-program')
+                http.get('city'),
+                http.get('study-program')
             ]);
             setCities(citiesRes.data);
             setStudyPrograms(programsRes.data);
@@ -96,7 +96,7 @@ const Student = () => {
         setSearchParams(cleared);
         setLoading(true);
         try {
-            const response = await http.get('/student');
+            const response = await http.get('student');
             setStudents(response.data);
         } catch (error) {
             console.error(error);
@@ -126,7 +126,7 @@ const Student = () => {
         setIsEditMode(true);
         setCurrentId(id);
         try {
-            const response = await http.get(`/student/${id}`);
+            const response = await http.get(`student/${id}`);
             const student = response.data;
 
             if (student.studyProgram) {
@@ -205,9 +205,9 @@ const Student = () => {
 
         try {
             if (isEditMode) {
-                await http.put(`/student/${currentId}`, payload);
+                await http.put(`student/${currentId}`, payload);
             } else {
-                await http.post('/student', payload);
+                await http.post('student', payload);
             }
             setIsModalOpen(false);
             fetchStudents();
