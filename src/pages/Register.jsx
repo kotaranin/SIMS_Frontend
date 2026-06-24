@@ -43,24 +43,49 @@ const Register = () => {
             return;
         }
 
-        const selectedStudyLevel = studyLevels.find(sl => sl.idStudyLevel === parseInt(studyLevelId));
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@fon\.bg\.ac\.rs$/;
 
-        const registrationData = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password,
-            question: question,
-            answer: answer,
-            admin: isAdmin,
-            studyLevel: selectedStudyLevel
-        };
+        if (!emailRegex.test(email)) {
+            alert("Mejl mora biti u formatu ime.prezime@fon.bg.ac.rs"); return;
+        }
 
-        setLoading(false);
+        setLoading(true);
         try {
+            // Povlačimo obe liste istovremeno
+            const [officersRes, requestsRes] = await Promise.all([
+                http.get('student-officer'),
+                http.get('registration-request')
+            ]);
+
+            const allOfficers = officersRes.data;
+            const allRequests = requestsRes.data;
+
+            const emailExistsInOfficers = allOfficers.some(o => o.email.toLowerCase() === email.toLowerCase());
+            const emailExistsInRequests = allRequests.some(r => r.email.toLowerCase() === email.toLowerCase());
+
+            if (emailExistsInOfficers || emailExistsInRequests) {
+                alert("Korisnik sa ovom e-mail adresom već postoji ili je već poslao zahtev!");
+                setLoading(false);
+                return;
+            }
+
+            const selectedStudyLevel = studyLevels.find(sl => sl.idStudyLevel === parseInt(studyLevelId));
+
+            const registrationData = {
+                firstName,
+                lastName,
+                email,
+                password,
+                question,
+                answer,
+                admin: isAdmin,
+                studyLevel: selectedStudyLevel
+            };
+
             await http.post('registration-request', registrationData);
             alert("Zahtev za registraciju je uspešno poslat! Sačekajte odobrenje administratora.");
             navigate('/login');
+
         } catch (error) {
             console.error(error);
             alert(error.response?.data?.message || "Došlo je do greške prilikom registracije.");

@@ -6,7 +6,7 @@ import InputField from '../components/InputField';
 import SearchPanel from '../components/SearchPanel';
 import Modal from '../components/Modal';
 import '../css/ExamPeriod.css';
-import {formatDate} from '../utils/formatDate';
+import { formatDate } from '../utils/formatDate';
 
 const ExamPeriod = () => {
     const [examPeriods, setExamPeriods] = useState([]);
@@ -92,6 +92,11 @@ const ExamPeriod = () => {
 
         if (!formName.trim() || !formStartDate || !formEndDate) {
             alert("Sva polja su obavezna!");
+            return;
+        }
+
+        if (new Date(formEndDate) <= new Date(formStartDate)) {
+            alert("Datum kraja mora biti posle datuma početka!");
             return;
         }
 

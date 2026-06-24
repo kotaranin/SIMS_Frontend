@@ -171,8 +171,38 @@ const Student = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.city || !formData.studyProgram) {
-            alert("Grad i studijski program su obavezna polja!");
+        if (!formData.indexNumber || !formData.firstName || !formData.lastName ||
+            !formData.dateOfBirth || !formData.yearOfStudy || !formData.city || !formData.studyProgram) {
+            alert("Molimo popunite sva obavezna polja!");
+            return;
+        }
+
+        const indexRegex = /^\d{4}\/\d+$/;
+        if (!indexRegex.test(formData.indexNumber.trim())) {
+            alert("Broj indeksa mora biti u formatu GGGG/BBBB (npr. 2026/0015).");
+            return;
+        }
+
+        const birthDate = new Date(formData.dateOfBirth);
+        if (birthDate > new Date()) {
+            alert("Datum rođenja ne može biti u budućnosti.");
+            return;
+        }
+
+        const year = parseInt(formData.yearOfStudy, 10);
+        if (isNaN(year) || year < 1) {
+            alert("Godina studija mora biti pozitivan ceo broj.");
+            return;
+        }
+
+        const isDuplicate = students.some(
+            (s) =>
+                s.indexNumber.toLowerCase().trim() === formData.indexNumber.toLowerCase().trim() &&
+                s.idStudent !== currentId
+        );
+
+        if (isDuplicate) {
+            alert("Student sa ovim brojem indeksa već postoji u sistemu!");
             return;
         }
 

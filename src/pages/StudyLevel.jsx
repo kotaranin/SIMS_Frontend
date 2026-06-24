@@ -148,6 +148,36 @@ const StudyLevel = () => {
             return;
         }
 
+        const nameExists = studyLevels.some(sl =>
+            sl.name.toLowerCase() === formData.name.toLowerCase() &&
+            sl.idStudyLevel !== currentId
+        );
+
+        if (nameExists) {
+            alert("Nivo studija sa ovim imenom već postoji!");
+            return;
+        }
+
+        const programNames = new Set();
+        for (const prog of formData.studyPrograms) {
+            if (!prog.name.trim()) { alert("Naziv studijskog programa je obavezan!"); return; }
+            if (programNames.has(prog.name.toLowerCase())) {
+                alert(`Duplikat studijskog programa: ${prog.name}`);
+                return;
+            }
+            programNames.add(prog.name.toLowerCase());
+
+            const moduleNames = new Set();
+            for (const mod of prog.modules) {
+                if (!mod.name.trim()) { alert("Naziv modula je obavezan!"); return; }
+                if (moduleNames.has(mod.name.toLowerCase())) {
+                    alert(`Duplikat modula unutar programa ${prog.name}: ${mod.name}`);
+                    return;
+                }
+                moduleNames.add(mod.name.toLowerCase());
+            }
+        }
+
         const payload = {
             idStudyLevel: isEditMode ? currentId : null,
             name: formData.name.trim(),

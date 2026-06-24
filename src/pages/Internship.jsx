@@ -237,6 +237,34 @@ const Internship = () => {
         const parsedCompany = JSON.parse(formData.company);
         const parsedStudent = JSON.parse(formData.student);
 
+        const start = new Date(formData.startDate);
+        const end = new Date(formData.endDate);
+        const defense = new Date(formData.defenseDate);
+
+        if (!(start <= end && end <= defense)) {
+            alert("Nevalidan redosled datuma! Redosled mora biti: Početak <= Kraj <= Odbrana.");
+            return;
+        }
+
+        const examStart = new Date(parsedExamPeriod.startDate);
+        const examEnd = new Date(parsedExamPeriod.endDate);
+
+        if (defense < examStart || defense > examEnd) {
+            alert(`Datum odbrane mora biti u okviru ispitnog roka: ${parsedExamPeriod.name} (${parsedExamPeriod.startDate} - ${parsedExamPeriod.endDate})`);
+            return;
+        }
+
+        const alreadyPassed = internships.some(i =>
+            i.student.idStudent === parsedStudent.idStudent &&
+            i.grade === 'POLOZIO' &&
+            (!isEditMode || i.idInternship !== currentId)
+        );
+
+        if (alreadyPassed) {
+            alert("Ovaj student već ima evidentiranu položenu stručnu praksu!");
+            return;
+        }
+
         const payload = {
             idInternship: isEditMode ? currentId : null,
             startDate: formData.startDate,

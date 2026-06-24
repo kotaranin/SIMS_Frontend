@@ -103,9 +103,32 @@ const Country = () => {
             return;
         }
 
+        const nameExists = countries.some(c =>
+            c.name.toLowerCase() === formCountryName.toLowerCase() &&
+            c.idCountry !== currentCountryId
+        );
+        if (nameExists) {
+            alert("Država sa ovim imenom već postoji!");
+            return;
+        }
+
+        const cityNames = new Set();
+
+        for (const city of formCities) {
+            if (!city.name.trim()) {
+                alert("Naziv grada ne sme biti prazan!");
+                return;
+            }
+            if (cityNames.has(city.name.toLowerCase())) {
+                alert(`Grad "${city.name}" je dupliran u listi.`);
+                return;
+            }
+            cityNames.add(city.name.toLowerCase());
+        }
+
         const countryData = {
-            name: formCountryName,
-            cities: formCities
+            name: formCountryName.trim(),
+            cities: formCities.map(c => ({ ...c, name: c.name.trim() }))
         };
 
         try {

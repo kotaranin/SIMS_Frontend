@@ -97,6 +97,16 @@ const Company = () => {
             return;
         }
 
+        const isDuplicate = companies.some(c => 
+            c.name.toLowerCase() === formName.trim().toLowerCase() && 
+            c.idCompany !== currentCompanyId
+        );
+
+        if (isDuplicate) {
+            alert("Kompanija sa ovim nazivom već postoji!");
+            return;
+        }
+
         const selectedCityObject = cities.find(c => c.idCity === parseInt(formCityId));
 
         const companyData = {
