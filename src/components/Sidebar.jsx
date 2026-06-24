@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
     Home, GraduationCap, Calendar, Globe,
     Building2, UserCheck, Award, Users, Briefcase, LogOut
@@ -7,6 +7,26 @@ import {
 import '../css/Sidebar.css';
 
 const Sidebar = () => {
+    const navigate = useNavigate();
+
+    const loggedInUser = JSON.parse(localStorage.getItem('user')) || {
+        firstName: 'Admin',
+        lastName: 'Dashboard',
+        admin: true
+    };
+
+    const getInitials = () => {
+        const firstLetter = loggedInUser.firstName ? loggedInUser.firstName.charAt(0).toUpperCase() : 'A';
+        const lastLetter = loggedInUser.lastName ? loggedInUser.lastName.charAt(0).toUpperCase() : 'D';
+        return `${firstLetter}${lastLetter}`;
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        navigate('/login');
+    };
+
     return (
         <aside className="sidebar">
             <div className="sidebar-brand">
@@ -52,10 +72,12 @@ const Sidebar = () => {
                     <span>Ispitni rokovi</span>
                 </NavLink>
 
-                <NavLink to="/registration-request" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"}>
-                    <UserCheck size={18} />
-                    <span>Zahtevi za registraciju</span>
-                </NavLink>
+                {loggedInUser.admin && (
+                    <NavLink to="/registration-request" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"}>
+                        <UserCheck size={18} />
+                        <span>Zahtevi za registraciju</span>
+                    </NavLink>
+                )}
 
                 <NavLink to="/study-level" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"}>
                     <Award size={18} />
@@ -69,14 +91,21 @@ const Sidebar = () => {
             </nav>
 
             <div className="sidebar-footer">
-                <div className="user-profile">
-                    <div className="user-avatar">AD</div>
+                <NavLink
+                    to="/user-profile"
+                    className={({ isActive }) => isActive ? "user-profile active-profile" : "user-profile"}
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                    <div className="user-avatar">{getInitials()}</div>
                     <div className="user-details">
-                        <span className="user-name">Admin Dashboard</span>
-                        <span className="user-role">Studentska Služba</span>
+                        <span className="user-name">{loggedInUser.firstName} {loggedInUser.lastName}</span>
+                        <span className="user-role">
+                            {loggedInUser.admin ? 'Administrator' : 'Studentska Služba'}
+                        </span>
                     </div>
-                </div>
-                <button className="btn-sidebar-logout" title="Odjavi se">
+                </NavLink>
+
+                <button className="btn-sidebar-logout" title="Odjavi se" onClick={handleLogout}>
                     <LogOut size={16} />
                 </button>
             </div>

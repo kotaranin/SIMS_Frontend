@@ -159,3 +159,21 @@
     background-color: #ef44441a;
     color: #ef4444;
 }
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.user-profile:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.user-profile.active-profile {
+    background-color: rgba(255, 255, 255, 0.1);
+}

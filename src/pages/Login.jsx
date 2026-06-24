@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { GraduationCap, Lock, Mail, AlertCircle, Loader2 } from 'lucide-react';
+import { GraduationCap, Lock, Mail, AlertCircle } from 'lucide-react';
 import http from '../api/http';
 import '../css/Login.css';
+import PasswordResetForm from './PasswordResetForm';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [isForgotPassword, setIsForgotPassword] = useState(false);
 
     const navigate = useNavigate();
 
@@ -55,50 +57,61 @@ const Login = () => {
                     </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="login-form">
-                    <div className="login-input-group">
-                        <label>E-mail adresa</label>
-                        <div className="login-input-wrapper">
-                            <Mail size={18} className="input-icon" />
-                            <input
-                                type="email"
-                                placeholder="ime.prezime@fon.bg.ac.rs"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
+                {isForgotPassword ? (
+                    <div className="password-reset-box">
+                        <PasswordResetForm onBack={() => setIsForgotPassword(false)} />
+                        <button type="button" className="text-button" onClick={() => setIsForgotPassword(false)}>
+                            Nazad na prijavu
+                        </button>
+                    </div>
+                ) : (
+                    <form onSubmit={handleSubmit} className="login-form">
+                        <div className="login-input-group">
+                            <label>E-mail adresa</label>
+                            <div className="login-input-wrapper">
+                                <Mail size={18} className="input-icon" />
+                                <input
+                                    type="email"
+                                    placeholder="ime.prezime@fon.bg.ac.rs"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="login-input-group">
-                        <label>Lozinka</label>
-                        <div className="login-input-wrapper">
-                            <Lock size={18} className="input-icon" />
-                            <input
-                                type="password"
-                                placeholder="••••••••"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
+                        <div className="login-input-group">
+                            <label>Lozinka</label>
+                            <div className="login-input-wrapper">
+                                <Lock size={18} className="input-icon" />
+                                <input
+                                    type="password"
+                                    placeholder="••••••••"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                            </div>
                         </div>
-                    </div>
 
-                    <button type="submit" className="btn-login-submit" disabled={loading}>
-                        {loading ? (
-                            <>
-                                <Loader2 size={16} className="spinner-icon" />
-                                Prijavljivanje...
-                            </>
-                        ) : (
-                            'Prijavi se'
-                        )}
-                    </button>
+                        <button type="submit" className="btn-login-submit" disabled={loading}>
+                            {loading ? 'Prijavljivanje...' : 'Prijavi se'}
+                        </button>
 
-                    <div className="login-footer-links">
-                        <p>Nemate nalog? <Link to="/register" className="register-link">Registrujte se ovde</Link></p>
-                    </div>
-                </form>
+                        <div className="login-footer-links">
+                            <button
+                                type="button"
+                                className="text-button-link"
+                                onClick={() => setIsForgotPassword(true)}
+                            >
+                                Zaboravili ste lozinku?
+                            </button>
+                            <p className="register-text">
+                                Nemate nalog? <Link to="/register" className="register-link">Registrujte se ovde</Link>
+                            </p>
+                        </div>
+                    </form>
+                )}
             </div>
         </div>
     );

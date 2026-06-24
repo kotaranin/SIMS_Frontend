@@ -148,3 +148,137 @@
         transform: rotate(360deg);
     }
 }
+
+.text-button {
+    background: none;
+    border: none;
+    color: #4f46e5;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.password-reset-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.password-reset-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.password-reset-box button {
+    padding: 12px;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.password-reset-box button:hover {
+    background-color: #4338ca;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.alert-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.alert-success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    padding: 20px;
+}
+
+.auth-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 450px;
+}
+
+.auth-title {
+    font-size: 22px;
+    color: #1e293b;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.form-group-custom {
+    margin-bottom: 15px;
+}
+
+.form-group-custom label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 5px;
+}
+
+.login-footer-links {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.text-button-link {
+    background: none;
+    border: none;
+    color: #4f46e5;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.text-button-link:hover {
+    color: #3730a3;
+}
+
+.register-text {
+    font-size: 14px;
+    color: #475569;
+    margin: 0;
+}
+
+.register-link {
+    color: #3b82f6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}

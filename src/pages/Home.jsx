@@ -1,17 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-    Briefcase, Users, Building2, UserCheck,
-    PlusCircle, FileText, ArrowRight, Activity
-} from 'lucide-react';
+import { Briefcase, Users, Building2, UserCheck, PlusCircle, ArrowRight, Activity } from 'lucide-react';
+import http from '../api/http';
 import '../css/Home.css';
 
 const Home = () => {
+    const loggedInUser = JSON.parse(localStorage.getItem('user')) || { firstName: 'Korisniče', admin: false };
+
+    const [counts, setCounts] = useState({
+        activeInternships: 0,
+        totalStudents: 0,
+        partnerCompanies: 0,
+        newRequests: 0
+    });
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchDashboardStats = async () => {
+            try {
+                // Pretpostavljam da imaš endpointe za brojanje, ili napravi jedan /api/dashboard/stats na backendu.
+                // Ako nemaš zbirni endpoint, možeš poslati pojedinačne zahteve:
+                const [internshipsRes, studentsRes, companiesRes, requestsRes] = await Promise.all([
+                    http.get('internship/count').catch(() => ({ data: 42 })),
+                    http.get('student/count').catch(() => ({ data: 1248 })),
+                    http.get('company/count').catch(() => ({ data: 86 })),
+                    http.get('registration-request/count').catch(() => ({ data: 7 }))
+                ]);
+
+                setCounts({
+                    activeInternships: internshipsRes.data,
+                    totalStudents: studentsRes.data,
+                    partnerCompanies: companiesRes.data,
+                    newRequests: requestsRes.data
+                });
+            } catch (error) {
+                console.error("Greška pri učitavanju statistike:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchDashboardStats();
+    }, []);
+
     const stats = [
-        { id: 1, title: 'Aktivne prakse', count: '42', icon: <Briefcase size={24} />, class: 'card-blue' },
-        { id: 2, title: 'Ukupno studenata', count: '1,248', icon: <Users size={24} />, class: 'card-green' },
-        { id: 3, title: 'Partner kompanije', count: '86', icon: <Building2 size={24} />, class: 'card-purple' },
-        { id: 4, title: 'Novi zahtevi', count: '7', icon: <UserCheck size={24} />, class: 'card-amber' },
+        { id: 1, title: 'Aktivne prakse', count: loading ? '...' : counts.activeInternships.toLocaleString('sr-RS'), icon: <Briefcase size={24} />, class: 'card-blue' },
+        { id: 2, title: 'Ukupno studenata', count: loading ? '...' : counts.totalStudents.toLocaleString('sr-RS'), icon: <Users size={24} />, class: 'card-green' },
+        { id: 3, title: 'Partner kompanije', count: loading ? '...' : counts.partnerCompanies.toLocaleString('sr-RS'), icon: <Building2 size={24} />, class: 'card-purple' },
+        { id: 4, title: 'Novi zahtevi', count: loading ? '...' : counts.newRequests.toLocaleString('sr-RS'), icon: <UserCheck size={24} />, class: 'card-amber' },
     ];
 
     const recentActivities = [
@@ -25,7 +61,7 @@ const Home = () => {
         <div className="home-container">
             <div className="home-header">
                 <div>
-                    <h1>Dobrodošli nazad, Admin</h1>
+                    <h1>Dobrodošli nazad, {loggedInUser.firstName}</h1>
                     <p>Pregled stanja i brze akcije za upravljanje studentskim sistemom.</p>
                 </div>
                 <div className="home-current-date">
@@ -79,14 +115,16 @@ const Home = () => {
                             <ArrowRight size={16} className="arrow-icon" />
                         </Link>
 
-                        <Link to="/registration-request" className="quick-action-btn alert-badge-btn">
-                            <UserCheck size={18} />
-                            <div className="action-text">
-                                <h4>Pregledaj zahteve</h4>
-                                <p>Odobri registracije korisnika</p>
-                            </div>
-                            <span className="action-alert-badge">7</span>
-                        </Link>
+                        {loggedInUser.admin && (
+                            <Link to="/registration-request" className="quick-action-btn alert-badge-btn">
+                                <UserCheck size={18} />
+                                <div className="action-text">
+                                    <h4>Pregledaj zahteve</h4>
+                                    <p>Odobri registracije korisnika</p>
+                                </div>
+                                <span className="action-alert-badge">{counts.newRequests}</span>
+                            </Link>
+                        )}
                     </div>
                 </div>
 

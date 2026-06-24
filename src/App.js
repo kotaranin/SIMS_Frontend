@@ -13,6 +13,7 @@ import Sidebar from './components/Sidebar';
 import './App.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import UserProfile from './pages/UserProfile';
 
 const ProtectedRoute = ({ children }) => {
     const token = localStorage.getItem('token');
@@ -44,6 +45,7 @@ function App() {
                                     <Route path="/study-level" element={<StudyLevel />} />
                                     <Route path="/student" element={<Student />} />
                                     <Route path="/internship" element={<Internship />} />
+                                    <Route path="/user-profile" element={<UserProfile />} />
                                 </Routes>
                             </div>
                         </div>
