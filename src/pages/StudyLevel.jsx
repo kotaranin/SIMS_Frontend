@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit2, Save } from 'lucide-react';
+import { Plus, Edit2, Save, Layers } from 'lucide-react';
 import http from '../api/http';
 
 import Button from '../components/Button';
@@ -214,8 +214,8 @@ const StudyLevel = () => {
                     <h1>Nivoi studija</h1>
                     <p>Pregled, unos i izmena nivoa studija, pripadajućih studijskih programa i njihovih modula.</p>
                 </div>
-                <Button variant="save" onClick={openAddModal} icon={<Plus size={18} />}>
-                    Dodaj Nivo Studija
+                <Button variant="primary" onClick={openAddModal} icon={<Layers size={18} />}>
+                    Dodaj nivo studija
                 </Button>
             </div>
 
@@ -294,11 +294,11 @@ const StudyLevel = () => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={isEditMode ? "Izmena Nivoa Studija" : "Novi Nivo Studija"}
+                title={isEditMode ? "Izmena podataka o nivou studija" : "Unošenje novog nivoa studija"}
             >
                 <form onSubmit={handleSubmit} className="study-level-form">
                     <InputField
-                        label="Naziv Nivoa Studija *"
+                        label="Naziv nivoa studija *"
                         placeholder="Unesite naziv (npr. Master akademske studije)"
                         value={formData.name}
                         onChange={(e) => handleLevelNameChange(e.target.value)}
@@ -328,7 +328,7 @@ const StudyLevel = () => {
 
                                 <div className="form-modules-section">
                                     <div className="modules-title-bar">
-                                        <h4>Moduli za ovaj program</h4>
+                                        <h4>Moduli</h4>
                                         <button type="button" className="btn-add-subnested" onClick={() => addModule(pIndex)}>
                                             <Plus size={14} /> Dodaj modul
                                         </button>

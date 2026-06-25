@@ -125,7 +125,7 @@ const RegistrationRequest = () => {
             <div className="request-header">
                 <div>
                     <h1>Zahtevi za registraciju</h1>
-                    <p>Upravljanje i provera dolaznih zahteva za kreiranje naloga zaposlenih na studentskoj službi.</p>
+                    <p>Upravljanje i provera dolaznih zahteva za kreiranje naloga zaposlenih u studentskoj službi.</p>
                 </div>
             </div>
 
@@ -154,7 +154,7 @@ const RegistrationRequest = () => {
                                 <th>Ime</th>
                                 <th>Prezime</th>
                                 <th>E-mail</th>
-                                <th className="text-center">Traži Admin Prava</th>
+                                <th className="text-center">Traži Admin prava</th>
                                 <th className="text-center">Akcije</th>
                             </tr>
                         </thead>

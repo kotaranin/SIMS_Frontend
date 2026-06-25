@@ -18,8 +18,6 @@ const Home = () => {
     useEffect(() => {
         const fetchDashboardStats = async () => {
             try {
-                // Pretpostavljam da imaš endpointe za brojanje, ili napravi jedan /api/dashboard/stats na backendu.
-                // Ako nemaš zbirni endpoint, možeš poslati pojedinačne zahteve:
                 const [internshipsRes, studentsRes, companiesRes, requestsRes] = await Promise.all([
                     http.get('internship/count').catch(() => ({ data: 42 })),
                     http.get('student/count').catch(() => ({ data: 1248 })),
@@ -44,7 +42,7 @@ const Home = () => {
     }, []);
 
     const stats = [
-        { id: 1, title: 'Aktivne prakse', count: loading ? '...' : counts.activeInternships.toLocaleString('sr-RS'), icon: <Briefcase size={24} />, class: 'card-blue' },
+        { id: 1, title: 'Evidentirane prakse', count: loading ? '...' : counts.activeInternships.toLocaleString('sr-RS'), icon: <Briefcase size={24} />, class: 'card-blue' },
         { id: 2, title: 'Ukupno studenata', count: loading ? '...' : counts.totalStudents.toLocaleString('sr-RS'), icon: <Users size={24} />, class: 'card-green' },
         { id: 3, title: 'Partner kompanije', count: loading ? '...' : counts.partnerCompanies.toLocaleString('sr-RS'), icon: <Building2 size={24} />, class: 'card-purple' },
         { id: 4, title: 'Novi zahtevi', count: loading ? '...' : counts.newRequests.toLocaleString('sr-RS'), icon: <UserCheck size={24} />, class: 'card-amber' },
@@ -61,8 +59,8 @@ const Home = () => {
         <div className="home-container">
             <div className="home-header">
                 <div>
-                    <h1>Dobrodošli nazad, {loggedInUser.firstName}</h1>
-                    <p>Pregled stanja i brze akcije za upravljanje studentskim sistemom.</p>
+                    <h1>Dobro došli nazad, {loggedInUser.firstName}!</h1>
+                    <p>Pregled stanja i brze akcije za upravljanje sistemom.</p>
                 </div>
                 <div className="home-current-date">
                     {new Date().toLocaleDateString('sr-RS', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
@@ -92,7 +90,7 @@ const Home = () => {
                             <Briefcase size={18} />
                             <div className="action-text">
                                 <h4>Evidentiraj praksu</h4>
-                                <p>Unesi novu prijavu i odbranu</p>
+                                <p>Unesi novu prijavu i odbranu.</p>
                             </div>
                             <ArrowRight size={16} className="arrow-icon" />
                         </Link>
@@ -101,7 +99,7 @@ const Home = () => {
                             <Users size={18} />
                             <div className="action-text">
                                 <h4>Dodaj studenta</h4>
-                                <p>Kreiraj novi profil studenta</p>
+                                <p>Kreiraj novi profil studenta.</p>
                             </div>
                             <ArrowRight size={16} className="arrow-icon" />
                         </Link>
@@ -110,7 +108,7 @@ const Home = () => {
                             <Building2 size={18} />
                             <div className="action-text">
                                 <h4>Nova kompanija</h4>
-                                <p>Uveži novog partnera u sistem</p>
+                                <p>Dodaj novog partnera u sistem.</p>
                             </div>
                             <ArrowRight size={16} className="arrow-icon" />
                         </Link>
@@ -120,7 +118,7 @@ const Home = () => {
                                 <UserCheck size={18} />
                                 <div className="action-text">
                                     <h4>Pregledaj zahteve</h4>
-                                    <p>Odobri registracije korisnika</p>
+                                    <p>Odobri zahteve za registraciju.</p>
                                 </div>
                                 <span className="action-alert-badge">{counts.newRequests}</span>
                             </Link>

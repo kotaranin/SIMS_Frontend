@@ -252,7 +252,7 @@ const Student = () => {
             <div className="student-header">
                 <div>
                     <h1>Studenti</h1>
-                    <p>Evidencija, pretraga i ažuriranje podataka o studentima, njihovim studijskim programima i modulima.</p>
+                    <p>Evidencija, pretraga i ažuriranje podataka o studentima.</p>
                 </div>
                 <button className="btn-add-student" onClick={openAddModal}>
                     <UserPlus size={18} style={{ marginRight: '8px' }} /> Dodaj studenta
@@ -347,7 +347,7 @@ const Student = () => {
                         <thead>
                             <tr>
                                 <th>Indeks</th>
-                                <th>Ime i Prezime</th>
+                                <th>Ime i prezime</th>
                                 <th>Datum rođenja</th>
                                 <th>Godina</th>
                                 <th>Mesto stanovanja</th>
@@ -404,7 +404,7 @@ const Student = () => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={isEditMode ? "Izmena Podataka o Studentu" : "Unos Novog Studenta"}
+                title={isEditMode ? "Izmena podataka o studentu" : "Unošenje novog Studenta"}
             >
                 <form onSubmit={handleSubmit} className="student-form-layout">
                     <div className="form-row-two-col">
@@ -443,7 +443,7 @@ const Student = () => {
                     </div>
 
                     <InputField
-                        label="Datum Rođenja *"
+                        label="Datum rođenja *"
                         type="date"
                         value={formData.dateOfBirth}
                         onChange={(e) => handleFormChange('dateOfBirth', e.target.value)}
@@ -485,7 +485,7 @@ const Student = () => {
                     </div>
 
                     <div className="form-group-select">
-                        <label className="select-label">Izborni Modul</label>
+                        <label className="select-label">Modul</label>
                         <select
                             className="custom-select"
                             value={formData.module}

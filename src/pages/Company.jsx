@@ -201,24 +201,24 @@ const Company = () => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={isEditMode ? "Izmeni kompaniju" : "Dodaj novu kompaniju"}
+                title={isEditMode ? "Izmeni podataka o kompaniji" : "Unošenje nove kompanije"}
             >
                 <form onSubmit={handleFormSubmit} className="modal-form">
                     <InputField
-                        label="Naziv kompanije"
+                        label="Naziv kompanije *"
                         placeholder="Unesite naziv kompanije..."
                         value={formName}
                         onChange={(e) => setFormName(e.target.value)}
                     />
                     <InputField
-                        label="Adresa kompanije"
+                        label="Adresa kompanije *"
                         placeholder="Unesite adresu..."
                         value={formAddress}
                         onChange={(e) => setFormAddress(e.target.value)}
                     />
 
                     <div className="select-field-wrapper">
-                        <label className="select-field-label">Grad</label>
+                        <label className="select-field-label">Grad *</label>
                         <select
                             value={formCityId}
                             onChange={(e) => setFormCityId(e.target.value)}

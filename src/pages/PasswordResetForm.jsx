@@ -107,7 +107,7 @@ const PasswordResetForm = ({ initialEmail = "", onPasswordChanged }) => {
 
             {step === 4 && (
                 <div style={{ textAlign: 'center', color: '#166534', padding: '10px' }}>
-                    <p>Lozinka je uspešno promenjena. Možete se ulogovati.</p>
+                    <p>Lozinka je uspešno promenjena.</p>
                 </div>
             )}
         </div>

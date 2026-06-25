@@ -248,18 +248,18 @@ const Country = () => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={isEditMode ? "Izmeni državu i gradove" : "Dodaj novu državu i gradove"}
+                title={isEditMode ? "Izmena podataka o državi" : "Unošenje nove države"}
             >
                 <form onSubmit={handleFormSubmit} className="modal-form">
                     <InputField
-                        label="Naziv države"
+                        label="Naziv države *"
                         placeholder="Unesite naziv države..."
                         value={formCountryName}
                         onChange={(e) => setFormCountryName(e.target.value)}
                     />
 
                     <div className="modal-cities-section">
-                        <label className="section-label">Gradovi ove države (Dodaj novi ili izmeni postojeće)</label>
+                        <label className="section-label">Gradovi ove države</label>
 
                         <div className="add-city-inline">
                             <input

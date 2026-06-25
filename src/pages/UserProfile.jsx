@@ -7,7 +7,7 @@ const UserProfile = () => {
     return (
         <div className="auth-container">
             <div className="auth-card">
-                <h2 className="auth-title">Moj Profil</h2>
+                <h2 className="auth-title">Moj profil</h2>
                 <div style={{ marginBottom: '20px', color: '#475569', fontSize: '14px' }}>
                     <p><strong>Ime i prezime:</strong> {user.firstName} {user.lastName}</p>
                     <p><strong>E-mail:</strong> {user.email}</p>

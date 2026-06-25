@@ -125,7 +125,7 @@ const ExamPeriod = () => {
             <div className="period-header">
                 <div>
                     <h1>Ispitni rokovi</h1>
-                    <p>Pregled, pretraga i definisanje ispitnih rokova za odbrane stručnih praksi.</p>
+                    <p>Pregled, pretraga i definisanje ispitnih rokova.</p>
                 </div>
                 <Button variant="primary" icon={<CalendarPlus size={18} />} onClick={openAddModal}>
                     Dodaj ispitni rok
@@ -198,23 +198,23 @@ const ExamPeriod = () => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={isEditMode ? "Izmeni ispitni rok" : "Dodaj novi ispitni rok"}
+                title={isEditMode ? "Izmena podataka o ispitnom roku" : "Unošenje novog ispitnog roka"}
             >
                 <form onSubmit={handleFormSubmit} className="modal-form">
                     <InputField
-                        label="Naziv ispitnog roka"
+                        label="Naziv ispitnog roka *"
                         placeholder="Unesite naziv (npr. jul 2026)"
                         value={formName}
                         onChange={(e) => setFormName(e.target.value)}
                     />
                     <InputField
-                        label="Datum početka"
+                        label="Datum početka *"
                         type="date"
                         value={formStartDate}
                         onChange={(e) => setFormStartDate(e.target.value)}
                     />
                     <InputField
-                        label="Datum završetka"
+                        label="Datum završetka *"
                         type="date"
                         value={formEndDate}
                         onChange={(e) => setFormEndDate(e.target.value)}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { UserPlus, Edit2, Download, FileText, Save, Trash2 } from 'lucide-react';
+import { UserPlus, Edit2, Download, FileText, Save, Trash2, BriefcaseBusiness } from 'lucide-react';
 import http from '../api/http';
 
 import Button from '../components/Button';
@@ -302,10 +302,10 @@ const Internship = () => {
             <div className="internship-header">
                 <div>
                     <h1>Stručne prakse</h1>
-                    <p>Evidencija, pretraga i ažuriranje stručnih praksi studenata i pripadajućih izveštaja.</p>
+                    <p>Evidencija, pretraga i ažuriranje stručnih praksi studenata.</p>
                 </div>
                 <button className="btn-add-internship" onClick={openAddModal}>
-                    <UserPlus size={18} style={{ marginRight: '8px' }} /> Dodaj praksu
+                    <BriefcaseBusiness size={18} style={{ marginRight: '8px' }} /> Dodaj praksu
                 </button>
             </div>
 
@@ -481,7 +481,7 @@ const Internship = () => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={isEditMode ? "Izmena Podataka o Stručnoj Praksi" : "Unošenje Nove Stručne Prakse"}
+                title={isEditMode ? "Izmena podataka o stručnoj praksi" : "Unošenje nove stručne prakse"}
             >
                 <form onSubmit={handleSubmit} className="internship-form-layout">
                     <div className="form-row-two-col">
@@ -493,7 +493,7 @@ const Internship = () => {
                             required
                         />
                         <InputField
-                            label="Datum završetka *"
+                            label="Datum kraja *"
                             type="date"
                             value={formData.endDate}
                             onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}

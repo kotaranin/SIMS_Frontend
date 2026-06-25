@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { GraduationCap, Lock, Mail, AlertCircle } from 'lucide-react';
+import { GraduationCap, Lock, Mail, AlertCircle, ArrowLeft } from 'lucide-react';
 import http from '../api/http';
 import '../css/Login.css';
 import PasswordResetForm from './PasswordResetForm';
@@ -46,8 +46,8 @@ const Login = () => {
                     <div className="login-logo-box">
                         <GraduationCap size={36} className="login-logo-icon" />
                     </div>
-                    <h2>SIMS Fakultet</h2>
-                    <p>Prijavite se na studentski administrativni sistem</p>
+                    <h2>Student Internship Management System</h2>
+                    <p>Prijavite se na sistem za evidenciju studentskih praksi.</p>
                 </div>
 
                 {error && (
@@ -60,8 +60,13 @@ const Login = () => {
                 {isForgotPassword ? (
                     <div className="password-reset-box">
                         <PasswordResetForm onBack={() => setIsForgotPassword(false)} />
-                        <button type="button" className="text-button" onClick={() => setIsForgotPassword(false)}>
-                            Nazad na prijavu
+
+                        <button
+                            type="button"
+                            className="back-to-login"
+                            onClick={() => setIsForgotPassword(false)}
+                        >
+                            <ArrowLeft size={16} /> Nazad na prijavu
                         </button>
                     </div>
                 ) : (

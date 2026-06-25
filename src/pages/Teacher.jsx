@@ -173,17 +173,17 @@ const Teacher = () => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={isEditMode ? "Izmeni nastavnika" : "Dodaj novog nastavnika"}
+                title={isEditMode ? "Izmena podataka o nastavniku" : "Unošenje novog nastavnika"}
             >
                 <form onSubmit={handleFormSubmit} className="modal-form">
                     <InputField
-                        label="Ime nastavnika"
+                        label="Ime nastavnika *"
                         placeholder="Unesite ime..."
                         value={formFirstName}
                         onChange={(e) => setFormFirstName(e.target.value)}
                     />
                     <InputField
-                        label="Prezime nastavnika"
+                        label="Prezime nastavnika *"
                         placeholder="Unesite prezime..."
                         value={formLastName}
                         onChange={(e) => setFormLastName(e.target.value)}

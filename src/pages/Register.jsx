@@ -97,24 +97,24 @@ const Register = () => {
     return (
         <div className="register-container">
             <div className="register-card">
-                <h2>Kreirajte zahtev za nalog</h2>
-                <p className="register-subtitle">Unesite podatke kako bi administrator odobrio vaš nalog.</p>
+                <h2>Kreirajte zahtev za registraciju</h2>
+                <p className="register-subtitle">Unesite podatke kako bi administrator odobrio Vaš nalog.</p>
 
                 <form onSubmit={handleSubmit} className="register-form">
                     <div className="form-row">
-                        <InputField label="Ime" placeholder="Unesite ime" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                        <InputField label="Prezime" placeholder="Unesite prezime" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                        <InputField label="Ime *" placeholder="Unesite ime" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                        <InputField label="Prezime *" placeholder="Unesite prezime" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                     </div>
 
-                    <InputField label="E-mail adresa" type="email" placeholder="primer@fon.bg.ac.rs" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <InputField label="Lozinka" type="password" placeholder="Unesite lozinku" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <InputField label="E-mail adresa *" type="email" placeholder="primer@fon.bg.ac.rs" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <InputField label="Lozinka *" type="password" placeholder="Unesite lozinku" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-                    <InputField label="Sigurnosno pitanje" placeholder="Npr. Ime prvog kućnog ljubimca?" value={question} onChange={(e) => setQuestion(e.target.value)} />
-                    <InputField label="Odgovor na pitanje" placeholder="Unesite odgovor" value={answer} onChange={(e) => setAnswer(e.target.value)} />
+                    <InputField label="Sigurnosno pitanje *" placeholder="Npr. Ime prvog kućnog ljubimca?" value={question} onChange={(e) => setQuestion(e.target.value)} />
+                    <InputField label="Odgovor na pitanje *" type="password" placeholder="Unesite odgovor" value={answer} onChange={(e) => setAnswer(e.target.value)} />
 
                     <div className="form-row select-row">
                         <div className="select-field-wrapper">
-                            <label className="select-field-label">Nivo studija</label>
+                            <label className="select-field-label">Nivo studija *</label>
                             <select value={studyLevelId} onChange={(e) => setStudyLevelId(e.target.value)} className="select-field-dropdown">
                                 {studyLevels.map((sl) => (
                                     <option key={sl.idStudyLevel} value={sl.idStudyLevel}>{sl.name}</option>

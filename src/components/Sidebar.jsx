@@ -60,7 +60,7 @@ const Sidebar = () => {
                     <span>Kompanije</span>
                 </NavLink>
 
-                <div className="menu-group-label">Šifrarnici i Zahtevi</div>
+                <div className="menu-group-label">Šifarnici i Zahtevi</div>
 
                 <NavLink to="/teacher" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"}>
                     <GraduationCap size={18} />
